@@ -1,9 +1,9 @@
-import styled from "styled-components"
-import { Link } from "react-router-dom"
 import { useState } from "react";
-import LogoVaiNaDelas from "../assets/logoVaiNaDelas.png"
-import iconeUsuarioLogado from "../assets/iconeUsuarioLogado.png"
-import iconeIniciarSessao from "../assets/iconeIniciarSessao.png"
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import iconeIniciarSessao from "../assets/iconeIniciarSessao.png";
+import iconeUsuarioLogado from "../assets/iconeUsuarioLogado.png";
+import LogoVaiNaDelas from "../assets/logoVaiNaDelas.png";
 
 const HeaderContainer = styled.header`
     display: flex;
@@ -151,11 +151,12 @@ export default function HeaderLogada () {
                 {menuAberto && 
                 (<NavMenu>
                     <ul>
+
                         <li>
                             <Link to="/iniciarSessao">Iniciar Sessão</Link>
                         </li>
                         <li>
-                            <Link to="/cursos">Cursos</Link>
+                            <Link to="/">Cursos</Link>
                         </li>
                         <li>
                             <Link to="/comunidades">Comunidades</Link>
@@ -171,7 +172,7 @@ export default function HeaderLogada () {
                 <Link to="/"><img src={LogoVaiNaDelas} alt="Logo da Vai na Delas" />  </Link>                               
             <NavHeader>
                     <li>
-                        <Link to="/cursos">Cursos</Link>
+                        <Link to="/">Cursos</Link>
                     </li>
                     <li>
                         <Link to="/comunidades">Comunidades</Link>
