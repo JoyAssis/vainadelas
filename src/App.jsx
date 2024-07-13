@@ -5,6 +5,7 @@ import Comunidades from './Paginas/Comunidades'
 import Index from './Paginas/index'
 import { default as IniciarSessao, default as Perfil } from './Paginas/IniciarSessao'
 import Mentorias from './Paginas/Mentorias'
+import Footer from "./Components/Footer"
 
 
 export default function App () {
@@ -20,6 +21,7 @@ export default function App () {
               <Route path="/perfil" element={<Perfil />} />
             </Routes>
       </BrowserRouter>
+      <Footer/>
     </>
   )
 }

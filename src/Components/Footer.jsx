@@ -19,7 +19,7 @@ border-bottom: solid 5px #D9D9D9;
 
 @media (max-width: 768px){
     height: 30vh;
-    align-items: center;
+    align-items: start;
     justify-content: space-evenly;
     }
 `
@@ -36,10 +36,14 @@ a{
 }
 
 @media (max-width: 768px){
-    width: 50%;
-    justify-content: space-evenly;
-    }
+    width: 80%;
+    justify-content: flex-start;
+    margin: 0 20px;
 
+    img {
+        width: 32px;
+    }
+}
 `
 
 const BoxTwo = styled.section`
@@ -55,7 +59,7 @@ p{
     font-size: 25px;
 
     @media (max-width: 768px){
-   font-size: 18px;
+    font-size: 10px;
     }
 }
 
