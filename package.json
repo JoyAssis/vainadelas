@@ -10,10 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "nuka-carousel": "^8.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.24.1",
-    "styled-components": "^6.1.11"
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.11",
+    "swiper": "^11.1.4"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
