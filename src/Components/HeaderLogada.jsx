@@ -49,6 +49,10 @@ const NavHeader = styled.nav`
     a {
         text-decoration: none;
         color: rgb(255, 255, 255);
+
+        &:hover{
+            color: #943271;
+        }
     }
 
     img {
