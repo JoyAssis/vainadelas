@@ -19,7 +19,7 @@ const Carrossel = ({imagens,titulo, children}) => {
  //montagem do carrossel
   return (
     <div style={{padding: '60px', background: '#000' }}>
-      <h2 style={{ color: '#FFFF' }}>{titulo}</h2>
+      <h2 style={{ color: '#FFFF', marginBottom:"20px" }}>{titulo}</h2>
       <Slider {...settings}> 
         {children}
       </Slider>
