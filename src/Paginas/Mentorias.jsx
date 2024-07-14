@@ -220,15 +220,15 @@ export default function Mentorias() {
         <h2>Conheça as vantagens:</h2>
         <DivVantagens>
             <BoxesVantagens>
-              <img className="seloSoftSkills" src={IconeSoftSkills} alt="" />
+              <img className="seloSoftSkills" src={IconeSoftSkills} alt="Imagem de Lâmpada" />
               <p className="vantagemSoftSkills">Mentore as integrantes a aprimorar as Soft Skills</p>
             </BoxesVantagens>
             <BoxesVantagens>
-              <img className="seloVerificado" src={SeloVerificado} alt="" />
+              <img className="seloVerificado" src={SeloVerificado} alt="Imagem de selo verificado" />
               <p className="vantagemSeloVerificado">Receba o selo Voluntária no perfil da plataforma e para compartilhar nas suas redes!</p>
             </BoxesVantagens>
             <BoxesVantagens>
-              <img src={SeloLiderança} alt="" />
+              <img src={SeloLiderança} alt="Ícone de mulher" />
               <p className="vantagemLideranca">Receba o Selo de Impacto em Liderança Tech</p>
             </BoxesVantagens>
         </DivVantagens>
