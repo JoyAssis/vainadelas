@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import HeaderLogada from "../Components/HeaderLogada"
 import Niveis from "../assets/niveis.png"
 import ImgComunidade from "../Imagens/imgcomunidade.png"
 import Selos from "../Imagens/selos.png"
@@ -24,9 +23,9 @@ const TerceiraSessao = styled.section`
   }
 
   button {
-    font-size: 40px;
+    font-size: 30px;
     height: 14vh;
-    width: 30%;
+    width: 20%;
     background-color: #C6408A;
     border: none;
     border-radius: 15px;
@@ -74,7 +73,7 @@ const DivTerceiraSessao = styled.div`
     justify-content: center;
     background-color: #f89dc84d;
     border-radius: 10px;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
     padding: 0 10px;
   }
@@ -101,7 +100,7 @@ const DivTerceiraSessao = styled.div`
       width: 100%;
     }
   }
-
+`
 
 const ComunidadeBox = styled.section`
 background-color: #000000;
@@ -147,7 +146,7 @@ const SegundaSection = styled.section`
   flex-direction:column;
   justify-content: space-evenly;
   width:45%;
-  margin-left: 5rem;
+  margin-left: 4rem;
   padding-top: 5rem;
 
   h2{
@@ -171,7 +170,9 @@ flex-direction:column;
 align-items: end;
 padding-right:5rem;
 `
-
+const Li = styled.li`
+ font-size:5px;
+`
 const ImgSelos = styled.img`
   width: 50vw;
 `
@@ -180,20 +181,7 @@ export default function Comunidades() {
 
   return (
     <>
-    <TerceiraSessao>
-      <h2>Como subir de nível</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-      <DivTerceiraSessao>
-        <ul>
-          <li>Escolha um curso na página principal</li>
-          <li>Clique no botão: “ingressar na comunidade”</li>
-          <li>Escolha a opção: “Se tornar uma Instrutora voluntária”</li>
-        </ul>
-          <img src={Niveis} alt="" />
-      </DivTerceiraSessao>
-      <button>ESCOLHA UMA COMUNIDADE</button>
-    </TerceiraSessao>
-    </>
+    
     <ComunidadeBox>
       <PrimeiraSection>
         <BoxPrimeiraSection>
@@ -212,8 +200,22 @@ export default function Comunidades() {
       <TerceiraSection>
         <ImgSelos src={Selos} alt="selos" />
       </TerceiraSection>
+      <TerceiraSessao>
+      <h2>Como subir de nível</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+      <DivTerceiraSessao>
+        <ul>
+          <Li>Escolha um curso na página principal</Li>
+          <Li>Clique no botão: “ingressar na comunidade”</Li>
+          <Li>Escolha a opção: “Se tornar uma Instrutora voluntária”</Li>
+        </ul>
+          <img src={Niveis} alt="" />
+      </DivTerceiraSessao>
+      <button>ESCOLHA UMA COMUNIDADE</button>
+    </TerceiraSessao>
 
     </ComunidadeBox>
+    </>
   )
 
 }
