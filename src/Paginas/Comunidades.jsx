@@ -115,6 +115,15 @@ padding-top: 3rem;
 img{
   width: 28vw;
 }
+
+@media (min-width: 320px) and (max-width: 768px){
+  height: 100vh;
+  flex-direction: column;
+
+  img {
+    width: 90%;
+  }
+}
 `
 
 const BoxPrimeiraSection = styled.div`
@@ -136,10 +145,23 @@ p{
   font-weight: 300;
   line-height: 1.2;
     }
+
+    @media (min-width: 320px) and (max-width: 768px){
+      width: 90%;
+
+      h2 {
+        font-size: 30px;
+        text-align: center;
+      }
+
+      p {
+        font-size: 20px;
+        text-align: center;
+      }
+    }
 `
 
 const SegundaSection = styled.section`
-
   width: 35%;
   height: 30vh;
   display: flex;
@@ -160,8 +182,26 @@ p{
   font-size: 2rem;
   font-weight: 300;
   line-height: 1.2;
-    }
+  }
 
+    @media (min-width: 320px) and (max-width: 768px){
+      width: 100%;
+      margin: 0;
+      align-items: center;
+      padding-top: 0;
+      padding-bottom: 1.5rem;
+      height: 40vh;
+
+      h2 {
+        font-size: 30px;
+        text-align: center;
+      }
+
+      p {
+        font-size: 20px;
+        text-align: center;
+      }
+}
 `
 
 const TerceiraSection = styled.section`
@@ -169,19 +209,28 @@ display: flex;
 flex-direction:column;
 align-items: end;
 padding-right:5rem;
+
+@media (min-width: 320px) and (max-width: 768px){
+  padding: 0;
+  align-items: center;
+}
 `
 const Li = styled.li`
  font-size:5px;
 `
 const ImgSelos = styled.img`
   width: 50vw;
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 98%;
+  }
 `
 
 export default function Comunidades() {
 
   return (
     <>
-    
+   
     <ComunidadeBox>
       <PrimeiraSection>
         <BoxPrimeiraSection>
@@ -215,6 +264,20 @@ export default function Comunidades() {
     </TerceiraSessao>
 
     </ComunidadeBox>
+    <TerceiraSessao>
+      <h2>Como subir de nível</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+      <DivTerceiraSessao>
+        <ul>
+          <li>Escolha um curso na página principal</li>
+          <li>Clique no botão: “ingressar na comunidade”</li>
+          <li>Escolha a opção: “Se tornar uma Instrutora voluntária”</li>
+        </ul>
+          <img src={Niveis} alt="" />
+      </DivTerceiraSessao>
+      <button>ESCOLHA UMA COMUNIDADE</button>
+    </TerceiraSessao>
+    
     </>
   )
 
