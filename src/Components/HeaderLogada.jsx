@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import iconeIniciarSessao from "../assets/iconeIniciarSessao.png";
 import iconeUsuarioLogado from "../assets/iconeUsuarioLogado.png";
 import LogoVaiNaDelas from "../assets/logoVaiNaDelas.png";
+import NaoLogado from "../assets/naologado.png"
+import SetaLado from "../assets/setalado.png"
+import SetaBaixo from "../assets/setabaixo.png"
+import { useNavigate } from "react-router-dom";
 
 const HeaderContainer = styled.header`
     display: flex;
@@ -49,7 +53,9 @@ const NavHeader = styled.nav`
     a {
         text-decoration: none;
         color: rgb(255, 255, 255);
-
+        &:visited{
+            color:#ffffff;
+        }
         &:hover{
             color: #943271;
         }
@@ -63,17 +69,25 @@ const NavHeader = styled.nav`
             display: none;     
     }
 `
-
 const NavHeaderLogada = styled.nav`
-    width: 30vw;
+    width: 26vw;
+    margin-left:5vw;
+    height: 10vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: ${(props) => props.isOn ? "space-evenly":"center"};
     align-items: center;
+    gap: ${(props)=> props.isOn ? "":"25px"} ;
 
-    img{
-        margin-right: 30px;
-        width: 96px;
+    a{
+        text-decoration:none;
+        list-style: none;
+        color: rgb(255, 255, 255);
     }
+
+img{
+    height: 8vh;
+}
+    
     @media (max-width: 768px){
         width: auto;
         img {
@@ -87,7 +101,6 @@ const NavHeaderLogada = styled.nav`
     }
     
 `
-
 const ButtonMenu = styled.button`
    display: none;
 
@@ -137,44 +150,96 @@ const NavMenu = styled.nav`
   }
 `
 
-export default function HeaderLogada () {
+const ModalPerfil = styled.img`
+width: 1.2vw;
+height: 1vh; 
+object-fit:contain;
+&:hover{
+    transform:scale(140%);
+}
+`
+const NavModalPerfil = styled.nav`
+display:${(props) => props.isOnNav ? "initial":"none"};
+position:absolute;
+top:9vh;
+right:10vw;
+z-index:10;
+padding:25px;
+border-radius:20px;
+background-color:#D9D9D9;
+ul{
+    display:flex;
+    flex-direction:column;
+    row-gap:10px;
+}
+a,li{
+    color:#8F2361;
+    font-weight:bold;
+    font-family:"Signika", sans-serif;
+    &:hover{
+        transform:scale(108%);
+    }
+}
+`
+
+
+export default function HeaderLogada() {
 
     const [abrirMenu, setAbrirMenu] = useState(false);
 
     const [menuAberto, setMenuAberto] = useState(false);
 
-    function alternarMenu() {
+    const [navModalPerfil,setNavModalPerfil] = useState(false)
+
+    const navigate = useNavigate();
+
+
+    useEffect(()=>{
+        if(localStorage.getItem("login") === null ){
+          navigate("/")
+        }
+      },[])
+
+    console.log(localStorage.getItem("login"))
+
+    const alternarMenu = () => {
         setAbrirMenu(!abrirMenu);
         setMenuAberto(!menuAberto);
     }
 
-    return(
+    return (
         <HeaderContainer>
             <div> {/*RESPONSIVO */}
-                <ButtonMenu  onClick={alternarMenu} >{abrirMenu ? "✖" : "☰"}</ButtonMenu>
-                {menuAberto && 
-                (<NavMenu>
-                    <ul>
+                <ButtonMenu onClick={alternarMenu} >{abrirMenu ? "✖" : "☰"}</ButtonMenu>
+                {menuAberto &&
+                    (<NavMenu>
+                        <ul>
 
-                        <li>
+                            {/* <li>
                             <Link to="/iniciarSessao">Iniciar Sessão</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Cursos</Link>
-                        </li>
-                        <li>
-                            <Link to="/comunidades">Comunidades</Link>
-                        </li>
-                        <li>
-                            <Link to="/mentorias">Mentorias</Link>
-                        </li>
-                    </ul>
-                </NavMenu>)}
+                        </li> */}
+
+                            <li>
+                                <Link to="/login">Iniciar Sessão</Link>
+                            </li>
+
+
+                            <li>
+                                <Link to="/">Cursos</Link>
+                            </li>
+                            <li>
+                                <Link to="/comunidades">Comunidades</Link>
+                            </li>
+                            <li>
+                                <Link to="/mentorias">Mentorias</Link>
+                            </li>
+                        </ul>
+                    </NavMenu>)}
             </div>
 
             <DivHeader> {/*DESKTOP */}
-                <Link to="/"><img src={LogoVaiNaDelas} alt="Logo da Vai na Delas" />  </Link>                               
-            <NavHeader>
+                <Link to="/"><img src={LogoVaiNaDelas} alt="Logo da Vai na Delas" />  </Link>
+                <NavHeader>
                     <li>
                         <Link to="/">Cursos</Link>
                     </li>
@@ -184,16 +249,46 @@ export default function HeaderLogada () {
                     <li>
                         <Link to="/mentorias">Mentorias</Link>
                     </li>
-             </NavHeader>
-           </DivHeader>
-           <NavHeaderLogada>
-                    <li>
-                        <Link to="/iniciarSessao" className="iconeIniciarSessao"><img src={iconeIniciarSessao} alt="Ícone de Iniciar Sessão" /></Link>
-                    </li>
-                    <li>
-                        <Link to="/perfil"><img src={iconeUsuarioLogado} alt="Ícone de Usuário Logado" /></Link>
-                    </li>
-             </NavHeaderLogada>
+               
+
+                </NavHeader>
+            </DivHeader>
+
+            <NavHeaderLogada isOn={localStorage.getItem("login" === "on" ? true:false)}>
+                <li>
+                    <Link>
+                        <img className="iconeIniciarSessao" src={iconeIniciarSessao} alt=""/>
+                    </Link>
+                </li>
+                {localStorage.getItem("login") === null ? <li>
+                    <Link to="/login" className="iconeIniciarSessao"> Iniciar Sessão </Link>
+                </li>: ""}
+                <li>
+                    <Link to={localStorage.getItem("login") === null ? "/login":"/perfil"}><img className="iconePepita" src={localStorage.getItem("login") === null ? NaoLogado : iconeUsuarioLogado } alt="Ícone de Usuário Logado" /></Link>
+                </li>
+               {localStorage.getItem("login") === "on" ? <ModalPerfil onClick={()=> setNavModalPerfil(!navModalPerfil)} src={SetaBaixo} alt=""/>:""}
+
+             <NavModalPerfil isOnNav={navModalPerfil}>
+                    <ul>
+                        <li>
+                            <Link to="/perfil">Meu Perfil</Link>    
+                        </li>
+
+                        <li>
+                            <Link>
+                            Meu Progresso
+                            </Link>
+                        </li>
+
+                        <li onClick={()=> {
+                            localStorage.removeItem("login");
+                            location.reload();
+                        }}>Sair da Conta</li>
+
+                    </ul>
+                </NavModalPerfil>
+            </NavHeaderLogada>
+            
         </HeaderContainer>
     )
 }

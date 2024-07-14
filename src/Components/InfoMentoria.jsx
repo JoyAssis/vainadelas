@@ -2,6 +2,7 @@ import React from "react"
 import Grafico from "../Imagens/grafico.png"
 import Background from "../Imagens/backgroundmain.png"
 import styled from "styled-components"
+import { useNavigate } from "react-router-dom"
 
 
 const MainBox = styled.main`
@@ -52,7 +53,10 @@ section{
 }
 `
 
-export default function MainTwo() {
+export default function InfoMentoria() {
+
+    const navigate = useNavigate();
+
     return (
         <MainBox>
             <img src={Grafico} alt="" />
@@ -60,7 +64,7 @@ export default function MainTwo() {
             <section>
                 <h2>Descubra o Poder da Mentoria com Mulheres Líderes na Tecnologia</h2>
                 <p>Conecte-se com profissionais inspiradoras, adquira insights valiosos e desenvolva habilidades essenciais para alcançar o sucesso na área de tecnologia.</p>
-                <button>Confira as mentorias disponíveis</button>
+                <button onClick={()=> navigate("/mentorias")}>Confira as mentorias disponíveis</button>
             </section>
         </MainBox>
     )

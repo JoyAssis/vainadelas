@@ -27,10 +27,9 @@ const Header = styled.div`
 `;
 
 const ProfileImage = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
-  border: 2px solid white; 
 `;
 
 const UserInfo = styled.div``;
@@ -42,7 +41,7 @@ const Name = styled.h1`
 `;
 
 const Details = styled.p`
-  font-size: 16px;
+  font-size: 32px;
   margin: 5;
   font-family: 'PT Sans', sans-serif;
   font-weight: 700;
@@ -54,12 +53,12 @@ const Line = styled.div`
 
 `
 const H2 = styled.h2`
-  margin:100px 0px 10px 200px;
+  margin: 30px 0px 20px 200px;
 
 `
 const Bio = styled.div`
   width:50vw;
-  height:20vh;
+  height:30vh;
   margin-left: 200px;
   background: #3B3B47; 
   padding: 10px;
@@ -69,17 +68,21 @@ const Bio = styled.div`
 
 const BioText = styled.p`
   margin: 0;
-  font-size: 14px;
+  font-size: 20px;
 `;
 
 const Button = styled.button`
-  background: transparent;
+margin-top: 1rem;
+background-color: #BDC7D8;
+  //background: transparent;
   border: 1px solid white;
-  color: white;
+  color: #943271;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 32px;
+  font-weight: bold;
+  width: 13vw;
 `;
 
 
@@ -88,27 +91,27 @@ export default function Perfil() {
 
   return (
     <>
-    <ProfileContainer>
-      <Header>
-        <ProfileImage src={userImage} alt="Perfil" />
-        <UserInfo>
-          <Name>Priscila Nogueira (Pepita)</Name>
-          <Details>Participante desde 12/07/2024</Details>
-          <Details>2 aulas dadas</Details>
-          <Button>Editar Perfil</Button>
-        </UserInfo>
-      </Header>
-      <Line></Line>
-      <H2>Sobre Pepita</H2>
-      <Bio>
-        <BioText>Texto curto sobre você (max 400 caracteres)</BioText>
-      </Bio>
-    </ProfileContainer>
+      <ProfileContainer>
+        <Header>
+          <ProfileImage src={userImage} alt="Perfil" />
+          <UserInfo>
+            <Name>Priscila Nogueira (Pepita)</Name>
+            <Details>Participante desde 12/07/2024</Details>
+            <Details>2 aulas dadas</Details>
+            <Button>Editar Perfil</Button>
+          </UserInfo>
+        </Header>
+        <Line></Line>
+        <H2>Sobre Pepita</H2>
+        <Bio>
+          <BioText>Texto curto sobre você (max 400 caracteres)</BioText>
+        </Bio>
+      </ProfileContainer>
 
 
 
-    <Carrossel titulo={"Seus cursos"}> 
-         {images.map((image, index) => (
+      <Carrossel titulo={"Seus cursos"}>
+        {images.map((image, index) => (
           <div key={index}>
             <div
               style={{
@@ -122,8 +125,7 @@ export default function Perfil() {
           </div>
         ))}
       </Carrossel>
-      <Footer/>
     </>
-    
+
   )
 }

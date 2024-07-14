@@ -10,16 +10,18 @@ const TerceiraSessao = styled.section`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 100vh;
+  padding-top: 4rem;
   
   h2 {
     width: 80%;
     font-size: 50px;
+    margin-right: 10rem;
   }
 
   p {
     width: 80%;
-    font-size: 40px;
+    font-size: 32px;
+    margin-right: 10rem;
   }
 
   button {
@@ -64,6 +66,8 @@ const DivTerceiraSessao = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     width: 20%;
+    margin-right: 5rem;
+
   }
 
   li {
@@ -73,13 +77,13 @@ const DivTerceiraSessao = styled.div`
     justify-content: center;
     background-color: #f89dc84d;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 25px;
     text-align: center;
     padding: 0 10px;
   }
 
   img {
-    width: 50%;
+    width: 60%;
   }
 
   @media (min-width: 320px) and (max-width: 768px){
@@ -132,7 +136,7 @@ h2{
 
 p{
   color:#D9D9D9;
-  font-size: 38px;
+  font-size: 36px;
   font-weight: 300;
   line-height: 1.2;
     }
@@ -157,7 +161,7 @@ const SegundaSection = styled.section`
 
 p{
   color:#D9D9D9;
-  font-size: 2rem;
+  font-size: 36px;
   font-weight: 300;
   line-height: 1.2;
     }
@@ -200,6 +204,7 @@ export default function Comunidades() {
       <TerceiraSection>
         <ImgSelos src={Selos} alt="selos" />
       </TerceiraSection>
+      
       <TerceiraSessao>
       <h2>Como subir de nível</h2>
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>

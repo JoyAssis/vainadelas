@@ -2,8 +2,9 @@ import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import styled from "styled-components"
-import Img from "../Imagens/banner.png"
-
+import ImgCarrosel1 from "../Imagens/carroselheader1.png"
+import ImgCarrosel2 from "../Imagens/carroselheader2.png"
+import ImgCarrosel3 from "../Imagens/carroselheader3.png"
 
 const Dots = (clickHander) => {
   const DotsStyle = {
@@ -15,7 +16,9 @@ const Dots = (clickHander) => {
     display: 'inline-block',
     margin: '0 8px',
     cursor: 'pointer',
-  };
+  }
+
+
 
   return (
     <div
@@ -53,11 +56,11 @@ function Banner() {
   return (
     <Carrossel showThumbs={false} autoPlay={true} infiniteLoop={true} showStatus={false} interval="4000" renderIndicator={Dots} >
       
-        <img src={Img}/>
+        <img src={ImgCarrosel1}/>
       
-        <img src={Img}/>
+        <img src={ImgCarrosel2}/>
 
-        <img src={Img}/>
+        <img src={ImgCarrosel3}/>
 
       
     </Carrossel>
