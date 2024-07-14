@@ -10,18 +10,16 @@ const TerceiraSessao = styled.section`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding-top: 4rem;
+  height: 100vh;
   
   h2 {
     width: 80%;
     font-size: 50px;
-    margin-right: 10rem;
   }
 
   p {
     width: 80%;
-    font-size: 32px;
-    margin-right: 10rem;
+    font-size: 40px;
   }
 
   button {
@@ -66,8 +64,6 @@ const DivTerceiraSessao = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     width: 20%;
-    margin-right: 5rem;
-
   }
 
   li {
@@ -77,13 +73,13 @@ const DivTerceiraSessao = styled.div`
     justify-content: center;
     background-color: #f89dc84d;
     border-radius: 10px;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     padding: 0 10px;
   }
 
   img {
-    width: 60%;
+    width: 50%;
   }
 
   @media (min-width: 320px) and (max-width: 768px){
@@ -119,6 +115,15 @@ padding-top: 3rem;
 img{
   width: 28vw;
 }
+
+@media (min-width: 320px) and (max-width: 768px){
+  height: 100vh;
+  flex-direction: column;
+
+  img {
+    width: 90%;
+  }
+}
 `
 
 const BoxPrimeiraSection = styled.div`
@@ -136,14 +141,27 @@ h2{
 
 p{
   color:#D9D9D9;
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 300;
   line-height: 1.2;
+    }
+
+    @media (min-width: 320px) and (max-width: 768px){
+      width: 90%;
+
+      h2 {
+        font-size: 30px;
+        text-align: center;
+      }
+
+      p {
+        font-size: 20px;
+        text-align: center;
+      }
     }
 `
 
 const SegundaSection = styled.section`
-
   width: 35%;
   height: 30vh;
   display: flex;
@@ -161,11 +179,29 @@ const SegundaSection = styled.section`
 
 p{
   color:#D9D9D9;
-  font-size: 36px;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 1.2;
-    }
+  }
 
+    @media (min-width: 320px) and (max-width: 768px){
+      width: 100%;
+      margin: 0;
+      align-items: center;
+      padding-top: 0;
+      padding-bottom: 1.5rem;
+      height: 40vh;
+
+      h2 {
+        font-size: 30px;
+        text-align: center;
+      }
+
+      p {
+        font-size: 20px;
+        text-align: center;
+      }
+}
 `
 
 const TerceiraSection = styled.section`
@@ -173,19 +209,28 @@ display: flex;
 flex-direction:column;
 align-items: end;
 padding-right:5rem;
+
+@media (min-width: 320px) and (max-width: 768px){
+  padding: 0;
+  align-items: center;
+}
 `
 const Li = styled.li`
  font-size:5px;
 `
 const ImgSelos = styled.img`
   width: 50vw;
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 98%;
+  }
 `
 
 export default function Comunidades() {
 
   return (
     <>
-    
+   
     <ComunidadeBox>
       <PrimeiraSection>
         <BoxPrimeiraSection>
@@ -204,7 +249,6 @@ export default function Comunidades() {
       <TerceiraSection>
         <ImgSelos src={Selos} alt="selos" />
       </TerceiraSection>
-      
       <TerceiraSessao>
       <h2>Como subir de nível</h2>
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
@@ -218,7 +262,6 @@ export default function Comunidades() {
       </DivTerceiraSessao>
       <button>ESCOLHA UMA COMUNIDADE</button>
     </TerceiraSessao>
-
     </ComunidadeBox>
     </>
   )

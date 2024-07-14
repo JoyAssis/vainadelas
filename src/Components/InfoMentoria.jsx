@@ -15,8 +15,8 @@ background-color:  #F89DC8;
 background-image:url(${Background});
 background-repeat: no-repeat;
 background-size: 100% 70vh;
-img{
 
+img{
 height: 70vh;
 }
 
@@ -49,7 +49,38 @@ section{
         color: #8F2361;
         border: none;
         filter: drop-shadow(0 0 0.75rem #943271);
+        cursor: pointer;
     }
+    @media (min-width: 320px) and (max-width: 768px){
+    h2 {
+        width: 90%;
+        font-size: 25px;
+    }
+
+    p {
+        width: 90%;
+        font-size: 18px;
+    }
+    button{
+        width: 70%;
+        height: 10vh;
+    }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 768px){
+    height: 90vh;
+    flex-direction: column-reverse;
+
+    section {
+        width: 100%;
+        height: 50vh;
+    }
+    
+    img {
+        width: 90%;
+        height: auto;
+    }   
 }
 `
 
