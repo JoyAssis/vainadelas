@@ -41,8 +41,8 @@ const Header = styled.div`
 `;
 
 const ProfileImage = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   border: 2px solid white; 
 
@@ -73,7 +73,7 @@ const Name = styled.h1`
 `;
 
 const Details = styled.p`
-  font-size: 16px;
+  font-size: 32px;
   margin: 5;
   font-family: 'PT Sans', sans-serif;
   font-weight: 700;
@@ -123,7 +123,7 @@ const Bio = styled.div`
 
 const BioText = styled.p`
   margin: 0;
-  font-size: 14px;
+  font-size: 20px;
 `;
 
 const Button = styled.button`
@@ -173,8 +173,8 @@ export default function Perfil() {
 
 
 
-    <Carrossel titulo={"Seus cursos"}> 
-         {images.map((image, index) => (
+      <Carrossel titulo={"Seus cursos"}>
+        {images.map((image, index) => (
           <div key={index}>
             <div
               style={{
@@ -189,6 +189,6 @@ export default function Perfil() {
         ))}
       </Carrossel>
     </>
-    
+
   )
 }
