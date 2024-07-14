@@ -262,22 +262,7 @@ export default function Comunidades() {
       </DivTerceiraSessao>
       <button>ESCOLHA UMA COMUNIDADE</button>
     </TerceiraSessao>
-
     </ComunidadeBox>
-    <TerceiraSessao>
-      <h2>Como subir de nível</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-      <DivTerceiraSessao>
-        <ul>
-          <li>Escolha um curso na página principal</li>
-          <li>Clique no botão: “ingressar na comunidade”</li>
-          <li>Escolha a opção: “Se tornar uma Instrutora voluntária”</li>
-        </ul>
-          <img src={Niveis} alt="" />
-      </DivTerceiraSessao>
-      <button>ESCOLHA UMA COMUNIDADE</button>
-    </TerceiraSessao>
-    
     </>
   )
 
