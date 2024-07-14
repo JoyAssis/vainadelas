@@ -1,9 +1,7 @@
 import React from "react"
 import Carousel from "../Components/CarouselHeader"
 import Carrossel from "../Components/CarouselRecomendados/Carrossel"
-import Footer from "../Components/Footer"
 import MainTwo from "../Components/MainTwo"
-
 import image1 from '../assets/cursosBanners/image1.png'
 import image2 from '../assets/cursosBanners/image2.png'
 
@@ -59,7 +57,6 @@ export default function Index(){
         ))}
       </Carrossel>
       <MainTwo/>
-      <Footer />
     </>
   )
 }
