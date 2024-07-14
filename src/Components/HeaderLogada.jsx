@@ -290,9 +290,7 @@ export default function HeaderLogada() {
                         </li>
 
                         <li>
-                            <Link>
-                            Meu Progresso
-                            </Link>
+                        <Link to="/progresso">Meu Progresso</Link> 
                         </li>
 
                         <li onClick={()=> {
