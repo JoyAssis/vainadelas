@@ -40,6 +40,7 @@ const NavHeader = styled.nav`
     align-items: center;
     width: 30vw;
 
+
     ul {
         display: flex;
         list-style: none;
@@ -70,6 +71,7 @@ const NavHeader = styled.nav`
     }
 `
 const NavHeaderLogada = styled.nav`
+
     width: 26vw;
     margin-left:5vw;
     height: 10vh;
@@ -90,13 +92,16 @@ img{
     
     @media (max-width: 768px){
         width: auto;
+    position: relative;
+    right: 7vw;
         img {
-            width: 60px;
-            margin: 0;
+            width: 40px;
+            height: 40px;
         }
 
         .iconeIniciarSessao {
             display: none;
+            
         }
     }
     
@@ -167,6 +172,8 @@ z-index:10;
 padding:25px;
 border-radius:20px;
 background-color:#D9D9D9;
+
+
 ul{
     display:flex;
     flex-direction:column;
@@ -181,6 +188,12 @@ a,li{
     }
 }
 `
+const IconeHeaderUsuaria = styled.img`
+border-radius:100%;
+height:3.8vh;
+width:3.8vw;
+object-fit:cover;
+`
 
 
 export default function HeaderLogada() {
@@ -190,6 +203,8 @@ export default function HeaderLogada() {
     const [menuAberto, setMenuAberto] = useState(false);
 
     const [navModalPerfil,setNavModalPerfil] = useState(false)
+
+    const [fotoUsuaria,setFotoUsuario] = useState(localStorage.getItem("foto_usuaria") === null ? iconeUsuarioLogado: localStorage.getItem("foto_usuaria"));
 
     const navigate = useNavigate();
 
@@ -264,7 +279,7 @@ export default function HeaderLogada() {
                     <Link to="/login" className="iconeIniciarSessao"> Iniciar Sessão </Link>
                 </li>: ""}
                 <li>
-                    <Link to={localStorage.getItem("login") === null ? "/login":"/perfil"}><img className="iconePepita" src={localStorage.getItem("login") === null ? NaoLogado : iconeUsuarioLogado } alt="Ícone de Usuário Logado" /></Link>
+                    <Link to={localStorage.getItem("login") === null ? "/login":"/perfil"}><IconeHeaderUsuaria className="iconePepita" src={localStorage.getItem("login") === null ? NaoLogado : fotoUsuaria} alt="Ícone de Usuário Logado" /></Link>
                 </li>
                {localStorage.getItem("login") === "on" ? <ModalPerfil onClick={()=> setNavModalPerfil(!navModalPerfil)} src={SetaBaixo} alt=""/>:""}
 

@@ -212,6 +212,7 @@ function SignUp({ closeModal }) {
       localStorage.setItem('email', email);
       localStorage.setItem('date', date);
       localStorage.setItem('password', password);
+      localStorage.setItem("data_criacao", new Date().toLocaleDateString("pt-BR"))
       alert('Conta criada com sucesso');
       closeModal();
     } else {

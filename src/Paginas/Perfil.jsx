@@ -1,10 +1,13 @@
 import styled from 'styled-components';
-import image3 from '../assets/cursosBanners/image1.png';
-import image2 from '../assets/cursosBanners/image2.png';
+import Curso1 from "../Components/CarouselRecomendados/Cursos/bancodedados.png"
+import Curso2 from "../Components/CarouselRecomendados/Cursos/htmlcss.png"
+import Curso3 from "../Components/CarouselRecomendados/Cursos/js.png"
+import Curso4 from "../Components/CarouselRecomendados/Cursos/c.png"
+import NaoLogado from "../assets/naologado.png"
 import Fundo from '../assets/Fundo.png';
 import userImage from '../assets/perfilImage.png';
 import Carrossel from '../Components/CarouselRecomendados/Carrossel';
-import Footer from '../Components/Footer';
+import { useState } from "react";
 
 //estilo
 const ProfileContainer = styled.div`
@@ -13,6 +16,7 @@ const ProfileContainer = styled.div`
   color: white;  
   height:115vh;
   background-size: cover;
+  
  `;
 
 const Header = styled.div`
@@ -21,6 +25,8 @@ const Header = styled.div`
   margin:0px 0px 0px 200px;
   padding: 150px;
   gap: 10px;
+  height: 70vh;
+
 
   .botaoMobile {
     display: none;
@@ -32,10 +38,11 @@ const Header = styled.div`
     width: 100%;
     padding: 0;
     margin: 0;
-    height: 60vh;
+    height: 70vh;
 
     .botaoMobile {
       display: flex;
+      height: 50px;
     }
   }
 `;
@@ -44,7 +51,6 @@ const ProfileImage = styled.img`
   width: 350px;
   height: 350px;
   border-radius: 50%;
-  border: 2px solid white; 
 
   @media (min-width: 320px) and (max-width: 768px) {
     margin-top: 20px;
@@ -59,6 +65,7 @@ const UserInfo = styled.div`
   .botaoDesk {
     display: none;
   }
+
 }
 `;
 
@@ -69,6 +76,7 @@ const Name = styled.h1`
 
   @media (min-width: 320px) and (max-width: 768px) {
     font-size: 30px;
+    margin-left: 0.5rem;
   }
 `;
 
@@ -77,11 +85,22 @@ const Details = styled.p`
   margin: 5;
   font-family: 'PT Sans', sans-serif;
   font-weight: 700;
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    font-size: 25px;
+    margin: 0.5rem;
+  }
+
+
 `;
 const Line = styled.div`
   background-color:#F89DC8;
   width: 100%;
   height: 5px;
+
+  @media (min-width: 320px) and (max-width: 768px) {
+  margin-top: 4rem;
+  }
 
 `
 const H2 = styled.h2`
@@ -109,6 +128,8 @@ const Bio = styled.div`
   height: 20vh;
   margin-left: 200px;
   background: #f89dc84e; 
+ // opacity: 0.5;  
+
   padding: 10px;
   border-radius: 5px;
 
@@ -145,32 +166,140 @@ const Button = styled.button`
   }
 `;
 
+//modal editar perfil
+
+const ModalMudarPerfil = styled.section`
+position:absolute;
+top:27vh;
+right:3vw;
+width:33vw;
+height: 46vh;
+background-color:#4C303D;
+border-radius:20px;
+text-align: center;
+
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+
+img{
+  width: 200px;
+  height: 200px;
+  margin-bottom: 2rem;
+}
+
+form{
+width: 16vw;
+height: 30vh; 
+display:flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items:flex-start;
+
+input{
+  width: 10vw;
+  height: 3vh;
+  padding-left:5px;
+}
+
+}
+`
+
+const SectionAtualizacao = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  button{
+    font-weight:bold;
+    font-family:"Signika",sans-serif;
+    border:none;
+    color:#943271;
+    font-size: 20px;
+  }
+
+`
+
+
+const BttFoto = styled.input`
+  background-color:#BDC7D8;
+  width: 8vw;
+  height:8vh;
+  border:none;
+  border-radius: 5px;
+  &::placeholder{
+    font-weight:bold;
+    color:#943271;
+    font-size: 14px;
+  }
+`
+
+const BttAtualizar = styled.button`
+margin-top: 2.2rem;
+  width: 8vw;
+  height:4vh;
+  background-color:#dcb1fc;
+  border-radius: 5px;
+`
 
 export default function Perfil() {
-  const images = [image2, image3, image2, image3, image2, image3, image2, image3, image2, image3];
+  const images = [Curso1, Curso2, Curso3, Curso4];
+
+  const [novoNome, setNovo] = useState("");
+  const [modalEditarPerfil, setModalEditarPerfil] = useState(false);
+  const [foto, setFoto] = useState(localStorage.getItem("foto_usuaria") === null ? NaoLogado:localStorage.getItem("foto_usuaria"));
 
   return (
     <>
-    <ProfileContainer>
-      <Header>
-        <ProfileImage src={userImage} alt="Perfil" />
-        <UserInfo>
-          <Name>Priscila Nogueira (Pepita)</Name>
-          <Details>Participante desde 12/07/2024</Details>
-          <Details>2 aulas dadas</Details>
-          <Button className='botaoDesk'>Editar Perfil</Button>
-        </UserInfo>
-        <Button className='botaoMobile'>Editar Perfil</Button>
-      </Header>
-      <Line></Line>
-      <BioContainer>
-        <H2>Sobre Pepita</H2>
-        <Bio>
-          <BioText>Texto curto sobre você (max 400 caracteres)</BioText>
-        </Bio>
-      </BioContainer>
-    </ProfileContainer>
+      <ProfileContainer>
+        <Header>
+          <ProfileImage src={localStorage.getItem("foto_usuaria") === null ? userImage:localStorage.getItem("foto_usuaria")} alt="Perfil" />
+          <UserInfo>
+            <Name>{localStorage.getItem("name")}</Name>
+            <Details>Participante desde {localStorage.getItem("data_criacao")}</Details>
+            <Details>2 aulas dadas</Details>
+            <Button onClick={() => setModalEditarPerfil(!modalEditarPerfil)} className='botaoDesk'>Editar Perfil</Button>
+          </UserInfo>
+          <Button className='botaoMobile'>Editar Perfil</Button>
+        </Header>
+        <Line></Line>
+        <BioContainer>
+          <H2>Sobre {localStorage.getItem("name")}</H2>
+          <Bio>
+            <BioText>Texto curto sobre você (max 400 caracteres)</BioText>
+          </Bio>
+        </BioContainer>
 
+
+        {modalEditarPerfil && <ModalMudarPerfil>
+          <h2>Editar Perfil</h2>
+
+          <SectionAtualizacao>
+            <img src={foto} alt="ícone não logado" />
+
+            <form>
+              <BttFoto onChange={(e)=> setFoto(e.target.value)} type="text" placeholder='Coloque o link de sua foto' />
+              <h2>Seu nome: </h2>
+              <input value={novoNome} onChange={(e) => setNovo(e.target.value)}
+                type="text"
+                placeholder="Altere seu nome"
+              />
+              <BttAtualizar onClick={() => {
+                if(novoNome !== ""){
+                   localStorage.setItem("name", novoNome);
+                localStorage.setItem("foto_usuaria",foto)
+                setModalEditarPerfil(false)
+                location.reload();
+                } else{
+                  alert("Você deve adicionar uma foto e nome de usuária")
+                }
+               
+              }}>Atualizar</BttAtualizar>
+            </form>
+          </SectionAtualizacao>
+
+        </ModalMudarPerfil>}
+
+      </ProfileContainer>
 
 
       <Carrossel titulo={"Seus cursos"}>
