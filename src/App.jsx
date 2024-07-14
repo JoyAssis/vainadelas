@@ -5,6 +5,7 @@ import Comunidades from './Paginas/Comunidades'
 import Index from './Paginas/index'
 import { default as IniciarSessao, default as Perfil } from './Paginas/IniciarSessao'
 import Mentorias from './Paginas/Mentorias'
+import Progresso from './Paginas/Progresso'
 import Footer from "./Components/Footer"
 import Login from "./Components/Login"
 
@@ -20,6 +21,7 @@ export default function App () {
               <Route path="/mentorias" element={<Mentorias />} />
               <Route path="/iniciarSessao" element={<IniciarSessao />} />
               <Route path="/perfil" element={<Perfil />} />
+              <Route path="/progresso" element={<Progresso />} />
               <Route path="/login" element={<Login/>} />
             </Routes>
       </BrowserRouter>

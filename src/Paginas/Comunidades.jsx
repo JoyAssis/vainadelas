@@ -258,7 +258,7 @@ export default function Comunidades() {
           <Li>Clique no botão: “ingressar na comunidade”</Li>
           <Li>Escolha a opção: “Se tornar uma Instrutora voluntária”</Li>
         </ul>
-          <img src={Niveis} alt="" />
+          <img src={Niveis} alt="Imagem mostrando os 3 níveis" />
       </DivTerceiraSessao>
       <button>ESCOLHA UMA COMUNIDADE</button>
     </TerceiraSessao>
