@@ -42,7 +42,7 @@ export default function Index(){
         ))}
       </Carrossel>
       <Carrossel titulo={"Back-end"}>
-      {images.map((image, index) => (
+        {images.map((image, index) => (
           <div key={index}>
             <div
               style={{

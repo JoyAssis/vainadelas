@@ -1,8 +1,8 @@
-
+import Perfil from './Perfil'
 export default function IniciarSessao() {
   return (
     <div>
-      INICIAR SESSÃO
+      <Perfil/>
     </div>
   )
 }

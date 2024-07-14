@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import { createGlobalStyle } from "styled-components"
+import App from './App.jsx'
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -10,11 +10,6 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
   li{
     list-style: none;
     cursor: pointer;
