@@ -11,8 +11,7 @@ import SeloVerificado from "../assets/imagensVantagens/seloVerificado.png"
 import Data from '../assets/data.png';
 import Meet from '../assets/meet.png';
 import Zoom from '../assets/zoom.png';
-
-
+import {useState} from "react";
 
 const ProgressoContainer = styled.section`
     background-color: #000;
@@ -329,6 +328,11 @@ const DivButton = styled.div`
 `
 
 export default function Progresso() {
+
+  const [modalAgendar,setModalAgendar] = useState(false);
+
+  const fecharModalAgendar = () => setModalAgendar(false)
+
   return (
     <ProgressoContainer>
       <PerfilContainer>
@@ -371,24 +375,29 @@ export default function Progresso() {
         <DivButton>
             <div>
                 <img src={IconeIniciarSessao} alt="Icone de Iniciar Sessao" />
-                <button>Inicie uma aula</button>
+                <button onClick={()=> setModalAgendar(!modalAgendar)}>Inicie uma aula</button>
             </div>
         </DivButton>
       </TreineeSection>
-      <Agendar/>
+     {modalAgendar && <Agendar fecharModalAgendar={fecharModalAgendar}/>}
     </ProgressoContainer>
-    
   )
 }
 
 
 
 const SectionModalAgendar = styled.section`
+position:absolute;
+top:112vh;
+border:solid #F89DC8;
+width:30vw;
+height:80vh;
+background-color:#000000;
+border-radius:30px;
 display:flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
-height:108vh;
 h2{
   margin-bottom:24px;
   font-size:2.2em;
@@ -412,7 +421,6 @@ label{
   height:50px;
   font-weight:bold;
   font-size:22px;
-  // border:solid;
 }
 
 `;
@@ -463,16 +471,16 @@ button{
   }
 }
 `;
-function Agendar() {
+function Agendar({fecharModalAgendar}) {
   return (
     <SectionModalAgendar>
       <h2>Agendar ou Iniciar</h2>
-      <FormModalAgenda>
+      <FormModalAgenda onSubmit={(e)=> e.preventDefault()}>
         <label>
           Tema da aula: <Inputs type="text" widthInput={'14vw'} required />
         </label>
         <label>
-          Data da aula: <Inputs type="text" widthInput={'14.6vw'} required />
+          Data da aula: <Inputs type="date" widthInput={'14.6vw'} required />
           <DataImg src={Data} alt="" />
         </label>
         <label>
@@ -485,7 +493,10 @@ function Agendar() {
         </label>
         <p>As aulas devem ter no mínimo 1h30 de duração</p>
         <ButtonsBox>
-          <button>Agendar</button>
+          <button onClick={()=> {
+            alert("Sua aula foi agendada, verifique seu e-mail cadastrado!")
+            fecharModalAgendar();
+            }}>Agendar</button>
           <button>Iniciar</button>
         </ButtonsBox>
       </FormModalAgenda>
